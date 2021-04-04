@@ -8,3 +8,5 @@
 
 D为开发者测试版；P开头为公测版；正式版无开头（详见releases）
 code里为D0.1版本，更多版本请见releases
+
+Chatty_installer.apk为“有点”简陋的Android版，下载安装即可使用。   by xiaoguoyu

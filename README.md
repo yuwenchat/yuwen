@@ -11,7 +11,7 @@ Core需要在一台服务器上运行，运行类websocket技术进行通讯。
 # 语闻现状
 因为决策失误，现在有三大版本，
 <br/>
-python版  文字版  以及  Windows版（也是用python编写的）
+python版（以及跟进一个Java版，当然主要开发python版，Java目前没人会，只是试试）  文字版  以及  Windows版（也是用python编写的）
 <br/>
 python版本由 服务器 接收端 发送端 三个程序组成。
 <br/>

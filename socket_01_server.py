@@ -18,6 +18,7 @@ def handle_client(c, addr):
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind(("0.0.0.0", 39888))
+    print("server is running...")
     s.listen()
 
     while True:
@@ -28,5 +29,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         user_list[t] = c
         for i in list(user_list.keys()):
             if not i.isAlive():
+                print("del " + str(i))
                 del user_list[i]
-        print(str(len(user_list))+"numbers connecting.")
+        print(str(len(user_list))+" mumbers connecting.")

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>My first JavaScript file</title>
+
+  <!--实现-->
+  <script>
+    function websockettest() {
+      console.log("clicked.")
+      var ws = new WebSocket("ws://138.128.245.115:39444")
+
+      ws.onopen = function(event){
+        console.log("connect!")
+        ws.send("hello server!")
+      }
+
+      ws.onmessage = function(event){
+        console.log("Received message: " + event.data)
+        ws.close()
+      }
+
+      ws.onclose = function(event){
+        console.log("closed.")
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <h2>测试websocket </h2>
+
+  <button type="button" onclick="websockettest()">发送websocket</button>
+
+</body>
+</html>

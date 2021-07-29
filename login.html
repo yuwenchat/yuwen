@@ -1,0 +1,51 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>用户注册</title>
+        <script >
+            var websockettest = function() {
+                    console.log("登录中")
+                    var ws = new WebSocket("ws://138.128.245.115:39444")
+                    ws.onopen = function(event){
+                        console.log("connect!")
+                        if(document.getElementById("pwd").value != document.getElementById("pwd2").value){
+                            alert("请检查密码是否符合要求并输入正确！")
+                            location.reload()
+                        }
+                        var user = document.getElementById("usr").value
+                        var pwd = document.getElementById("pwd").value
+                        ws.send("login\n" + user + "\n" + pwd)
+                    }
+                    ws.onmessage = function(event){
+                        console.log("Received message: " + event.data)
+                        ws.close()
+                    }
+                    ws.onclose = function(event){
+                        console.log("closed.")
+                    }
+            }
+        </script>
+        <link href="login.css" rel="stylesheet" type="text/css">
+    </head>
+    <body id="body-cont">
+        <center><div class="wrap"><!--网站整体控制，勿随意改动-->
+            <div class="header"><!--头部信息开始-->
+                <span style="color: balck;font-size:xx-large;">用户注册</span><br>
+                <marquee direction="right"><span style="color: balck;font-size:medium;">语闻，一个免费快捷的聊天工具！</marquee></span>
+            </div><!--头部信息结束-->
+            <div id="main">
+                <input class="login-bar" type="text" name="user-name" id="usr" placeholder="请填写您的用户名">
+                <input class="login-bar" type="password" name="user-password" id="pwd" placeholder="请填写您的密码（仅6~12位数字）">
+                <input class="login-bar" type="password" name="user-password-again" id="pwd2" placeholder="请再次填写您的密码">
+                <button type="button" id="submit-cont" onclick="websockettest()">点击注册</button>
+                <h4 style="color:cornflowerblue">已有账号，立刻登陆</h4>
+            </div>
+            <div id="bottom"><!--开发者选项，正式版本请删除，或者替换成友情链接和广告位，可以自行开发-->
+                <div id="bottom-nav">
+                    <span id="span-cear">开发者选项（待续）</span>
+                </div>
+            </div>
+        </div></center>
+    </body>
+</html>

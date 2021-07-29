@@ -9,7 +9,7 @@ def handle_client(c, addr, root):
         headers = request.split(b"\r\n")
         file = headers[0].split()[1].decode()
 
-        if file == "/" or file == "http://138.128.245.115/":
+        if file == "/" or file == "http://138.128.245.115/" or file == "http://138.128.245.115:39555/":
             file = "/index.html"
         print(root)
         print(file)
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     # os.chdir()
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind(("0.0.0.0", 80))
+        s.bind(("0.0.0.0", 39555))
         s.listen()
 
         while True:
